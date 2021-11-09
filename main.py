@@ -42,18 +42,21 @@ async def on_message(message):
         quote = get_quote()
         await message.channel.send(quote)
  
+    if msg.startswith('Greet'):
+        await message.channel.send('Hey! Hows it going?')
+
+
 client.run(os.getenv('TOKEN'))
-
-
 
 # Stock part
 
 # API_KEY = os.getenv('TOKEN')
 # bot = client.run(API_KEY)
 
-if message.content('Greet'):
-    def greet(message):
-        message.channel.send("Hey! Hows it going?")
+
+
+
+# def greet(message):
 
 # @bot.message_handler(commands=['hello'])
 # def hello(message):
