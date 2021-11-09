@@ -42,7 +42,7 @@ async def on_message(message):
         quote = get_quote()
         await message.channel.send(quote)
  
-    if msg.startswith('Greet'):
+    if msg.startswith('Greet') or msg.startswith('greet'):
         await message.channel.send('Hey! Hows it going?')
 
 
