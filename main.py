@@ -16,11 +16,6 @@ load_dotenv()       #The load_dotenv() function looks for any .env file present 
 
 client = discord.Client()
 
-sad_words = ["sad", "depressed", "unhappy", "miserable", "depressing"]
-
-starter_encouragements = ["Cheerup!", "I will be ok.", "Stay strong."]
-
-
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
