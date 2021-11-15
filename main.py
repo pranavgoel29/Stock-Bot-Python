@@ -2,7 +2,6 @@ import discord
 import os
 import requests
 import json
-import random
 import yfinance as yf
 from replit import db
 from keep_alive import keep_alive
