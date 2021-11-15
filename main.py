@@ -24,16 +24,15 @@ def get_quote():
 
 # Function for custom stock
 
-def send_price(pricec):
-    # request = message.content.split()[1]
-  request = pricec
-  data = yf.download(tickers=request, period='5m', interval='1m')
+def send_price(price):
+  request = price
+  data = yf.download(tickers=request, period='10m', interval='2m')
   if data.size > 0:
     data = data.reset_index()
     data["format_date"] = data['Datetime'].dt.strftime('%m/%d %I:%M %p')
     data.set_index('format_date', inplace=True)
     print(data.to_string())
-    return(data['Close'].to_string(header=False))
+    return(data['Close'].to_string(header=False) + "\n \n stock data (amount in $)")
   else:
     return("No data!?")
 
@@ -42,7 +41,7 @@ def send_price(pricec):
 
 def get_stock():
   response = ""
-  stocks = ['gme', 'amc', 'nok']
+  stocks = ['msft', 'googl', 'fb', 'tsla', 'adbe']
   stock_data = []
   for stock in stocks:
     data = yf.download(tickers=stock, period='2d', interval='1d')
@@ -63,8 +62,8 @@ def get_stock():
   response = f"{columns[0] : <10}{columns[1] : ^10}{columns[2] : >10}\n"
   for row in stock_data:
     response += f"{row[0] : <10}{row[1] : ^10}{row[2] : >10}\n"
-  response += "\nStock Data"
-  return(string(response))
+  response += "\nStock Data (amount in $)"
+  return(response)
 
 
 # Server login message function.
@@ -97,12 +96,8 @@ async def on_message(message):
 
 
     if msg.startswith('!price'):
-    # request = message.content.split()
-    # if len(request) < 2 or request[0].lower() not in "!price":
-    #   return False
-    # else:
-      pricec = msg.split()[1]
-      price_custom = send_price(pricec)
+      price = msg.split()[1]
+      price_custom = send_price(price)
       await message.channel.send(price_custom)
 
 client.run(os.getenv('TOKEN'))
