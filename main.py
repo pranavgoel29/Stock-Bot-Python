@@ -26,13 +26,13 @@ def get_quote():
 
 def send_price(price):
   request = price
-  data = yf.download(tickers=request, period='10m', interval='2m')
+  data = yf.download(tickers=request, period='5m', interval='1m')
   if data.size > 0:
     data = data.reset_index()
     data["format_date"] = data['Datetime'].dt.strftime('%m/%d   %I:%M  %p')
     data.set_index('format_date', inplace=True)
     print(data.to_string())
-    return("Date    Time       Price($)\n" + data['Low'].to_string(header=False) + data['High'].to_string(header=False) +data['Close'].to_string(header=False) + "\n \n stock data (amount in $)")
+    return("Date      Time         Price($)\n" + "\nLow\n" + data['Low'].to_string(header=False) + "\n\nHigh\n" + data['High'].to_string(header=False) + "\n\nClose\n" + data['Close'].to_string(header=False) + "\n \n stock data ")
   else:
     return("No data!?")
 
@@ -59,7 +59,7 @@ def get_stock():
       columns.append(format_date)
     print()
 
-  response = f"{columns[0] : <10}{columns[1] : ^10}{columns[2] : >10}\n"
+  response = f"{columns[0] : <10}{columns[1] : ^10}{columns[2] : >10}\n\n"
   for row in stock_data:
     response += f"{row[0] : <10}{row[1] : ^10}{row[2] : >10}\n"
   response += "\nStock Data (amount in $)"
