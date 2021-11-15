@@ -102,4 +102,5 @@ async def on_message(message):
       price_custom = send_price(price)
       await message.channel.send(price_custom)
 
+keep_alive()
 client.run(os.getenv('TOKEN'))
