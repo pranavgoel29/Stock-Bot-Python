@@ -5,7 +5,7 @@ import json
 import random
 import yfinance as yf
 from replit import db
-
+from keep_alive import keep_alive
 
 #Solution for .env file import
 from dotenv import load_dotenv
