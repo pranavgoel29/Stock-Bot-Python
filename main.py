@@ -82,7 +82,7 @@ async def on_message(message):
     msg = message.content
 
     if msg.startswith('!commands') or msg.startswith('!Commands'):
-      await message.channel.send('Include "!" before every command.\n\n1. inspire - To get inspirational quotes.\n\n2. stock - To get data about some predefined tech companies.\n\n3. price stock_name - To get data of custom stock provided by user. (Type stock name in place of "stock_name") \n')
+      await message.channel.send('Include "!" before every command.\n\n1. inspire - To get inspirational quotes.\n\n2. stock - To get data about some predefined tech companies.\n\n3. price stock_name - To get data of specific stock provided by user. (Type stock name in place of "stock_name") \n')
 
     if msg.startswith('!about') or msg.startswith('!About'):
       await message.channel.send("Hey folks! I'm Stocky your personal stock bot.\nYou can use me to get stock prices of any company listed in NASDAQ by using the company's stock initials.\nYou can use the keyword '!commands' or '!Commands' to get information about the commands.")
