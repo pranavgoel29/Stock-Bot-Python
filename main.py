@@ -81,14 +81,17 @@ async def on_message(message):
 
     msg = message.content
 
-    if msg.startswith('!commands'):
+    if msg.startswith('!commands') or msg.startswith('!Commands'):
       await message.channel.send('Include "!" before every command.\n\n1. inspire - To get inspirational quotes.\n\n2. stock - To get data about some predefined tech companies.\n\n3. price stock_name - To get data of custom stock provided by user. (Type stock name in place of "stock_name") \n')
 
-    if msg.startswith('!inspire'):
+    if msg.startswith('!about') or msg.startswith('!About'):
+      await message.channel.send("Hey folks! I'm Stocky your personal stock bot.\nYou can use me to get stock prices of any company listed in NASDAQ by using the company's stock initials.\n You can use the keyword '!command' or '!Command' to get information about the commands.")
+
+    if msg.startswith('!inspire') or msg.startswith('!Inspire'):
         quote = get_quote()
         await message.channel.send(quote)
 
-    if msg.startswith('!stock'):
+    if msg.startswith('!stock') or msg.startswith('!Stock'):
         stock_data = get_stock()
         await message.channel.send(stock_data)
  
@@ -96,7 +99,7 @@ async def on_message(message):
         await message.channel.send('Hey! Hows it going?')
 
 
-    if msg.startswith('!price'):
+    if msg.startswith('!price') or msg.startswith('!Price'):
       price = msg.split()[1]
       price_custom = send_price(price)
       await message.channel.send(price_custom)
