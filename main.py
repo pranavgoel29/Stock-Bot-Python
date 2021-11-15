@@ -32,7 +32,7 @@ def send_price(price):
     data["format_date"] = data['Datetime'].dt.strftime('%m/%d   %I:%M  %p')
     data.set_index('format_date', inplace=True)
     print(data.to_string())
-    return("Date    Time       Price($)\n" + data['Close'].to_string(header=False) + "\n \n stock data (amount in $)")
+    return("Date    Time       Price($)\n" + data['Low'].to_string(header=False) + data['High'].to_string(header=False) +data['Close'].to_string(header=False) + "\n \n stock data (amount in $)")
   else:
     return("No data!?")
 
