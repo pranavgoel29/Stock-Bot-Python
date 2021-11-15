@@ -29,10 +29,10 @@ def send_price(price):
   data = yf.download(tickers=request, period='10m', interval='2m')
   if data.size > 0:
     data = data.reset_index()
-    data["format_date"] = data['Datetime'].dt.strftime('%m/%d %I:%M %p')
+    data["format_date"] = data['Datetime'].dt.strftime('%m/%d   %I:%M  %p')
     data.set_index('format_date', inplace=True)
     print(data.to_string())
-    return(data['Close'].to_string(header=False) + "\n \n stock data (amount in $)")
+    return("Date    Time       Price($)\n" + data['Close'].to_string(header=False) + "\n \n stock data (amount in $)")
   else:
     return("No data!?")
 
@@ -82,6 +82,8 @@ async def on_message(message):
 
     msg = message.content
 
+    if msg.startswith('!commands'):
+      await message.channel.send('Include "!" before every command.\n\n1. inspire - To get inspirational quotes.\n\n2. stock - To get data about some predefined tech companies.\n\n3. price stock_name - To get data of custom stock provided by user. (Type stock name in place of "stock_name")\n')
 
     if msg.startswith('!inspire'):
         quote = get_quote()
