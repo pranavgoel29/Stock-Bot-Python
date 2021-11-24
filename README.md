@@ -17,6 +17,11 @@ Yfinance - This API serves real-time and historical data for crypto and stock ma
 
 Dotenv - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
 
+Request - Requests allows you to send HTTP/1.1 requests extremely easily.There’s no need to manually add query strings to your URLs, or to form-encode your POST data. Keep-alive and HTTPconnection pooling are 100% automatic, thanks to urllib3. 
+
+JSON - JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for machines to parse and generate. We are using this library for better readability of the data that we are providing to the user when he is using our software. 
+
+
 ## Commands
 
 !about - To get a short introduction of the bot and its features.
