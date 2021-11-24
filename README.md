@@ -20,8 +20,12 @@ Dotenv - Dotenv is a zero-dependency module that loads environment variables fro
 ## Commands
 
 !about - To get a short introduction of the bot and its features.
+
 !commands - To get list of commands that you can use to access all the features of stocky.
+
 !inspire - Use this command to get inspirational quotes on your discord channel use. 
+
 !stock - To get useful stock data about some of the top tech US companies like Google, Adobe, and Apple.
+
 !price 'stockname' - Stocky will give you stock information of the specific stock you need. You just need to type the stock name of the company. You will get stock’s high, low and closing price of the current day.
 
